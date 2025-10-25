@@ -113,7 +113,7 @@ def run_model(
     image_file_paths = [os.path.join(image_folder_path, path) for path in os.listdir(image_folder_path)]
     img = load_and_preprocess_images(image_file_paths).to(device)
 
-    print(f"Loaded {img.shape[1]} images")
+    print(f"Loaded {img.shape[1]} images to {img.device}")
     if img.shape[1] == 0:
         raise ValueError("No images found. Check your upload.")
 
@@ -1815,6 +1815,6 @@ with gr.Blocks(
         show_error=True,
         share=False,
         server_name="0.0.0.0",
-        server_port=8080,
+        server_port=8085,
         ssr_mode=False,
     )
